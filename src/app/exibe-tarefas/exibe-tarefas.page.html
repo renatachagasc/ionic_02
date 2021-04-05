@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Cadastradas</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+    <div id="container">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-card-content>
+                        <h1>Tarefa em aberto:</h1>
+                        <ion-list *ngFor="let tarefa of tarefas">
+                            <ion-icon *ngIf="tarefa.tipo === 'Alto'" name="fast-food-outline"></ion-icon>
+                            <ion-icon *ngIf="tarefa.tipo === 'Médio'" name="school-outline"></ion-icon>
+                            <ion-icon *ngIf="tarefa.tipo === 'Baixo'" name="baseball-outline"></ion-icon>
+                            <ion-item>
+                                <ion-label>Nome da tarefa: {{tarefa.nome}}</ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Responsavél: {{tarefa.responsavel}}</ion-label>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Data de conclusão: {{tarefa.data | date: 'dd/MM/yyyy'}}</ion-label>
+
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Prioridade: {{tarefa.tipo}}</ion-label>
+
+                            </ion-item>
+                            <ion-item>
+                                <ion-label>Descrição: {{tarefa.descricao}}</ion-label>
+                            </ion-item>
+                        </ion-list>
+
+                    </ion-card-content>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    </div>
+
+</ion-content>
